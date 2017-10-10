@@ -1,4 +1,4 @@
-pipelineJob('nodejs-pipeline') {
+multibranchPipelineJob('nodejs-pipeline') {
     definition {
         cpsScm{
           scm{
@@ -9,7 +9,7 @@ pipelineJob('nodejs-pipeline') {
       }
        
           }
-          scriptPath('misc/Jenkinsfile')	
+          scriptPath('misc/Jenkinsfile-other')	
         }
     }
 }
