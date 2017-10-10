@@ -1,15 +1,16 @@
 multibranchPipelineJob('nodejs-pipeline') {
-    definition {
-        cpsScm{
-          scm{
-               git('https://github.com/ksexton/docker-demo.git') {
-        node -> // is hudson.plugins.git.GitSCM
-        node / gitConfigName('DSL User')
-        node / gitConfigEmail('ks@mocker.org')
-      }
-       
-          }
-          scriptPath('misc/Jenkinsfile-other')	
-        }
+  branchSources {
+    git {
+      remote('https://github.com/ksexton/docker-demo.git')
+      includes('*')
+    } 
+  }
+  orphanedItemStrategy {
+    discardOldItems {
+      numToKeep(20)
     }
+  }
+  definition {
+    scriptPath('misc/Jenkinsfile-other')	
+  }
 }
