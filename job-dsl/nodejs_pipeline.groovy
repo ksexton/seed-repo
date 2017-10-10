@@ -10,7 +10,7 @@ multibranchPipelineJob('nodejs-pipeline') {
       numToKeep(20)
     }
   }
-  definition {
-    scriptPath('misc/Jenkinsfile-other')	
+  configure {
+    scriptPath('misc/Jenkinsfile-other')
   }
 }
